@@ -38,7 +38,7 @@ Die HTML-Dateien werden erzeugt – nie von Hand ändern. Inhalte: `_quelle/seit
 Das Bauskript meldet je Seite die Zahl der Telefon-Links und warnt bei mehr als einer h1 oder zu
 langem Titel bzw. zu langer Beschreibung.
 
-Werkzeuge außerhalb des Repos in `Desktop\Yabis\`: `quelle\` (Originale der alten Seite),
+Werkzeuge außerhalb des Repos in `Desktop\sideTwo Projekte\Website Kunden\yabis-fliesenwelt\_material\`: `quelle\` (Originale der alten Seite),
 `werkzeug\bilder-bauen.sh` (AVIF + WebP, bricht ab, wenn ein Bild größer als seine Vorlage würde),
 `werkzeug\karte-daten.mjs` (OSM-Daten aus `geo\` → `_quelle/karte-daten.json`), `werkzeug\schirm.sh`
 (Bildschirmfoto eines Fensters), `werkzeug\seite-ganz.mjs` (ganze Seite per DevTools-Protokoll,

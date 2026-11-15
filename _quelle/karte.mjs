@@ -1,5 +1,5 @@
 // Anfahrtskarte als eigene Zeichnung: Rhein, Autobahnen, Hauptstraßen, Bergheimer Straße, Laden.
-// Daten: karte-daten.json (erzeugt mit Desktop/Yabis/werkzeug/karte-daten.mjs aus OpenStreetMap).
+// Daten: karte-daten.json (erzeugt mit Desktop/sideTwo Projekte/Website Kunden/yabis-fliesenwelt/_material/werkzeug/karte-daten.mjs aus OpenStreetMap).
 // Einheit im SVG: 1 km = 40. Mitte = Bergheimer Straße 115. Nichts wird nachgeladen.
 import fs from "node:fs";
 import path from "node:path";

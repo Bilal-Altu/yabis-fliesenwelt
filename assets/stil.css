@@ -1,5 +1,6 @@
-/* Yabi’s Fliesenwelt – Gestaltung „Römischer Verband“
-   Jede Fläche ist eine Fliese, dazwischen liegt die Fuge. Farben aus dem Logo-Y und der Fassade. */
+/* Yabi’s Fliesenwelt – Gestaltung „Römischer Verband“, dunkle Fuge
+   Jede Fläche ist eine Fliese, dazwischen liegt eine anthrazitfarbene Fuge – die Farbe der Schildleiste
+   über dem Eingang. Einziger Akzent ist das Sandgold der Schild-Schrift. */
 
 @font-face {
   font-family: "Familjen Grotesk";
@@ -9,18 +10,20 @@
 }
 
 :root {
-  --papier: #f4f1ec;
-  --weiss: #fbfaf8;
-  --fuge: #d5cdc2;
-  --tinte: #23211f;
-  --grau: #5d5852;
-  --stein: #e4ddd3;
-  --sand: #cbb7a0;
-  --travertin: #d9c9b0;
-  --taupe: #8e7d6f;
-  --grau-fliese: #a99887;
-  --anthrazit: #2b2d37;
-  --fb: 6px;              /* Fugenbreite */
+  --papier: #fafaf8;
+  --weiss: #ffffff;
+  --fuge: #1e1f24;        /* Fuge = Schildleiste über dem Eingang */
+  --linie: #dcdbd6;       /* Haarlinien im Text */
+  --tinte: #16171b;
+  --grau: #55565c;
+  --stein: #e8e7e3;
+  --gold: #c9a77c;        /* Schrift auf dem Schild: „JEDEN STIL“, „JEDES ZUHAUSE“ */
+  --sand: #d6d3cc;        /* heller Beton, für ruhige Füllfliesen */
+  --travertin: #e3dccf;
+  --taupe: #b9b7b0;
+  --grau-fliese: #8e8c86;
+  --anthrazit: #1e1f24;
+  --fb: 8px;              /* Fugenbreite */
   --rand: 24px;           /* Seitenrand */
   --kopf: 84px;
 }
@@ -50,9 +53,9 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ---------- Schrift ---------- */
 .titel-start, .titel-gross, .titel-mittel { text-wrap: balance; }
-.titel-start { font-size: clamp(36px, 4.3vw, 74px); line-height: .98; letter-spacing: -.032em; font-weight: 700; }
-.titel-gross { font-size: clamp(34px, 3.7vw, 62px); line-height: 1; letter-spacing: -.03em; font-weight: 700; }
-.titel-mittel { font-size: clamp(26px, 2.5vw, 40px); line-height: 1.06; letter-spacing: -.022em; font-weight: 700; }
+.titel-start { font-size: clamp(40px, min(5.4vw, 7.4vh), 98px); line-height: .94; letter-spacing: -.045em; font-weight: 700; }
+.titel-gross { font-size: clamp(36px, 4.4vw, 76px); line-height: .96; letter-spacing: -.04em; font-weight: 700; }
+.titel-mittel { font-size: clamp(28px, 3vw, 48px); line-height: 1.02; letter-spacing: -.03em; font-weight: 700; }
 .titel-klein { font-size: 20px; line-height: 1.2; letter-spacing: -.01em; font-weight: 700; }
 .ueber { display: block; font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: var(--grau); margin-bottom: 14px; }
 .ueber a { text-decoration: none; }
@@ -90,7 +93,7 @@ ul, ol { padding: 0; list-style: none; }
 .nav ul { display: flex; gap: 26px; }
 .nav a { font-size: 15px; font-weight: 500; text-decoration: none; padding-block: 10px; }
 .nav a:hover, .nav a[aria-current], .nav a.ist-drin { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; text-decoration-color: var(--taupe); }
-.kopf__telefon { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; text-decoration: none; padding: 10px 0 10px 26px; border-left: 1px solid var(--fuge); white-space: nowrap; }
+.kopf__telefon { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; text-decoration: none; padding: 10px 0 10px 26px; border-left: 1px solid var(--linie); white-space: nowrap; }
 .kopf__telefon:hover { text-decoration: underline; }
 .kopf__menue { display: none; margin-left: auto; width: 48px; height: 48px; border: 0; background: none; cursor: pointer; position: relative; }
 .kopf__menue i { position: absolute; left: 12px; right: 12px; height: 2px; background: var(--tinte); transition: transform .2s; }
@@ -98,7 +101,7 @@ ul, ol { padding: 0; list-style: none; }
 .kopf__menue[aria-expanded="true"] i:first-of-type { transform: translateY(4.5px) rotate(45deg); }
 .kopf__menue[aria-expanded="true"] i:last-of-type { transform: translateY(-4.5px) rotate(-45deg); }
 .menue-mobil { position: fixed; inset: var(--kopf) 0 0 0; background: var(--papier); z-index: 50; padding: 24px var(--rand); overflow-y: auto; }
-.menue-mobil a { display: block; font-size: 28px; font-weight: 700; letter-spacing: -.02em; text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--fuge); }
+.menue-mobil a { display: block; font-size: 28px; font-weight: 700; letter-spacing: -.02em; text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--linie); }
 .menue-mobil a[aria-current] { color: var(--taupe); }
 body.menue-offen { overflow: hidden; }
 @media (max-width: 1079px) {
@@ -122,6 +125,7 @@ body.menue-offen { overflow: hidden; }
 .fliese--taupe { background: var(--taupe); }
 .fliese--grau { background: var(--grau-fliese); }
 .fliese--anthrazit { background: var(--anthrazit); color: #fff; }
+.fliese--gold { background: var(--gold); color: var(--tinte); }
 .fliese--foto { background: var(--stein); }
 .fliese--foto picture, .fliese--foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 a.fliese { text-decoration: none; }
@@ -135,24 +139,21 @@ a.fliese--foto:hover img { transform: scale(1.03); }
 
 /* ---------- Startseite: die Wand ---------- */
 .start-wand { display: grid; gap: var(--fb); padding: var(--fb); background: var(--fuge); margin-bottom: clamp(48px, 7vw, 96px); }
-.start-text { padding: clamp(22px, 3vw, 48px); display: flex; flex-direction: column; justify-content: flex-end; gap: 22px; }
+.start-text { padding: clamp(22px, 2.6vw, 44px); display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; }
 .start-text .lead { max-width: 33em; }
 .s-zeit { display: flex; flex-direction: column; justify-content: space-between; gap: 6px; padding: 14px 16px; font-size: 14px; line-height: 1.35; }
 .zeit__status { font-weight: 600; font-size: 16px; }
-.ist-offen .zeit__status::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #8fd19e; margin-right: 8px; vertical-align: 1px; }
+.ist-offen .zeit__status::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #1f6b3a; margin-right: 8px; vertical-align: 1px; }
 .zeit__unten { display: flex; flex-direction: column; gap: 2px; opacity: .85; }
-.s-profis { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; padding: 12px 14px; font-weight: 600; font-size: 15px; }
-.s-profis:hover { background: #fff; }
-.s-stein { background: var(--stein); }
 
 @media (max-width: 767px) {
   .start-wand {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: "t t t t" "f f f f" "f f f f" "z z r r" "p p r r";
+    grid-template-areas: "t t t t" "p p r r" "p p r r" "p p z z";
     grid-auto-rows: minmax(calc((100vw - 2 * var(--rand) - 5 * var(--fb)) / 4), auto);
   }
-  .start-text { grid-area: t; } .s-fassade { grid-area: f; } .s-zeit { grid-area: z; } .s-regal { grid-area: r; } .s-profis { grid-area: p; }
-  .s-lounge, .s-sand, .s-bad, .s-empfang, .s-aussen, .s-taupe, .s-stein, .s-grau { display: none; }
+  .start-text { grid-area: t; } .s-platte { grid-area: p; } .s-regal { grid-area: r; } .s-zeit { grid-area: z; }
+  .s-fassade, .s-bad, .s-fisch, .s-beton { display: none; }
 }
 @media (min-width: 768px) {
   .start-wand {
@@ -161,18 +162,13 @@ a.fliese--foto:hover img { transform: scale(1.03); }
     margin-bottom: clamp(56px, 7vw, 104px);
   }
   .start-text { grid-column: 1 / 7; grid-row: 1 / 5; }
-  .s-fassade { grid-column: 7 / 11; grid-row: 1 / 4; }
-  .s-zeit { grid-column: 11 / 13; grid-row: 1 / 2; }
-  .s-regal { grid-column: 11 / 13; grid-row: 2 / 5; }
-  .s-lounge { grid-column: 7 / 9; grid-row: 4 / 6; }
-  .s-sand { grid-column: 9 / 11; grid-row: 4 / 5; }
-  .s-bad { grid-column: 9 / 11; grid-row: 5 / 7; }
-  .s-empfang { grid-column: 11 / 13; grid-row: 5 / 7; }
-  .s-aussen { grid-column: 1 / 5; grid-row: 5 / 7; }
-  .s-taupe { grid-column: 5 / 6; grid-row: 5 / 6; }
-  .s-stein { grid-column: 6 / 7; grid-row: 5 / 6; }
-  .s-profis { grid-column: 5 / 7; grid-row: 6 / 7; }
-  .s-grau { grid-column: 7 / 9; grid-row: 6 / 7; }
+  .s-platte { grid-column: 7 / 10; grid-row: 1 / 7; }
+  .s-regal { grid-column: 10 / 13; grid-row: 1 / 4; }
+  .s-zeit { grid-column: 10 / 13; grid-row: 4 / 5; }
+  .s-bad { grid-column: 10 / 13; grid-row: 5 / 7; }
+  .s-fassade { grid-column: 1 / 4; grid-row: 5 / 7; }
+  .s-fisch { grid-column: 4 / 6; grid-row: 5 / 7; }
+  .s-beton { grid-column: 6 / 7; grid-row: 5 / 7; background: var(--taupe); }
 }
 /* Am Desktop zeigen die Fotofliesen der Startwand ihr Schild erst beim Überfahren */
 @media (min-width: 768px) and (hover: hover) {
@@ -189,7 +185,7 @@ a.fliese--foto:hover img { transform: scale(1.03); }
 .stein--granit { background: #8b8986; } .stein--marmor { background: #ece8e2; } .stein--travertin { background: #d9c7ab; }
 .stein--schiefer { background: #47484c; color: #fff; } .stein--quarzit { background: #bcb5a9; }
 .ton-0 { background: var(--stein); } .ton-1 { background: var(--sand); } .ton-2 { background: var(--grau-fliese); }
-.ton-3 { background: var(--fuge); outline: 1px solid #c8bfb3; outline-offset: -1px; } .ton-4 { background: var(--weiss); }
+.ton-3 { background: #d6d4ce; } .ton-4 { background: var(--weiss); }
 .kontakt-telefon, .kontakt-mail { display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: clamp(18px, 2.4vw, 32px); text-decoration: none; }
 .kontakt-telefon span, .kontakt-mail span { font-size: 14px; opacity: .8; }
 .kontakt-telefon b { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(28px, 3.2vw, 52px); letter-spacing: -.02em; line-height: 1.05; }
@@ -238,7 +234,7 @@ a.fliese--foto:hover img { transform: scale(1.03); }
   .kopfzeile { grid-template-columns: 7fr 5fr; align-items: end; }
   .zweispaltig { grid-template-columns: 4fr 8fr; }
 }
-.abschnitt + .abschnitt { border-top: 1px solid var(--fuge); }
+.abschnitt + .abschnitt { border-top: 1px solid var(--linie); }
 
 /* Sortiment auf der Startseite */
 .sortiment-wand > a:not(.fliese--foto) { display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: clamp(16px, 2vw, 26px); }
@@ -275,7 +271,7 @@ a.fliese--foto:hover img { transform: scale(1.03); }
 
 /* Ablauf */
 .ablauf { counter-reset: schritt; }
-.ablauf li { counter-increment: schritt; display: grid; grid-template-columns: 56px 1fr; gap: 4px 16px; padding: 20px 0; border-top: 1px solid var(--fuge); }
+.ablauf li { counter-increment: schritt; display: grid; grid-template-columns: 56px 1fr; gap: 4px 16px; padding: 20px 0; border-top: 1px solid var(--linie); }
 .ablauf li::before { content: counter(schritt); grid-row: span 2; font-size: 28px; font-weight: 500; line-height: 1; color: var(--taupe); }
 .ablauf h3 { font-size: 20px; letter-spacing: -.01em; }
 .ablauf p { color: var(--grau); max-width: 38em; }
@@ -284,42 +280,42 @@ a.fliese--foto:hover img { transform: scale(1.03); }
 /* Band für Profis */
 .profis-band { padding: var(--fb); background: var(--fuge); }
 .profis-band .fliese { display: grid; gap: 18px 48px; padding: clamp(28px, 4.5vw, 64px); align-items: center; }
-.profis-band p { max-width: 36em; opacity: .9; }
+.profis-band p { max-width: 36em; }
 .profis-band .knopf { justify-self: start; }
 @media (min-width: 1024px) { .profis-band .fliese { grid-template-columns: 4fr 6fr auto; } }
 
 /* Fragen */
 .fragen { display: grid; gap: 0 48px; }
-.fragen > div { padding: 20px 0; border-top: 1px solid var(--fuge); }
+.fragen > div { padding: 20px 0; border-top: 1px solid var(--linie); }
 .fragen dt { font-weight: 700; font-size: 18px; line-height: 1.3; letter-spacing: -.01em; }
 .fragen dd { margin-top: 8px; color: var(--grau); }
 .fragen dd a { color: var(--tinte); font-weight: 600; }
 @media (min-width: 1024px) { .fragen { grid-template-columns: 1fr 1fr; } }
 
 /* Kennwerte und Tipps */
-.kennwerte > div { display: grid; gap: 4px 24px; padding: 16px 0; border-top: 1px solid var(--fuge); }
+.kennwerte > div { display: grid; gap: 4px 24px; padding: 16px 0; border-top: 1px solid var(--linie); }
 .kennwerte dt { font-weight: 700; }
 .kennwerte dd { color: var(--grau); }
 @media (min-width: 768px) { .kennwerte > div { grid-template-columns: 220px 1fr; } }
 .tipps { counter-reset: tipp; }
-.tipps li { counter-increment: tipp; display: grid; grid-template-columns: 44px 1fr; gap: 4px 12px; padding: 20px 0; border-top: 1px solid var(--fuge); }
+.tipps li { counter-increment: tipp; display: grid; grid-template-columns: 44px 1fr; gap: 4px 12px; padding: 20px 0; border-top: 1px solid var(--linie); }
 .tipps li::before { content: counter(tipp, decimal-leading-zero); grid-row: span 2; font-weight: 500; color: var(--taupe); padding-top: 2px; }
 .tipps h3 { font-size: 19px; line-height: 1.3; letter-spacing: -.01em; }
 .tipps p { color: var(--grau); max-width: 40em; }
-.liste li { padding: 14px 0 14px 28px; border-top: 1px solid var(--fuge); position: relative; }
+.liste li { padding: 14px 0 14px 28px; border-top: 1px solid var(--linie); position: relative; }
 .liste li::before { content: ""; position: absolute; left: 2px; top: 22px; width: 10px; height: 10px; background: var(--sand); }
 
 /* Tabellen */
 .tabelle-rahmen { overflow-x: auto; }
 .tabelle { width: 100%; border-collapse: collapse; font-size: 16px; min-width: 560px; }
-.tabelle th, .tabelle td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-top: 1px solid var(--fuge); }
+.tabelle th, .tabelle td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-top: 1px solid var(--linie); }
 .tabelle thead th { font-size: 14px; font-weight: 500; color: var(--grau); border-top: 0; padding-bottom: 10px; }
 .tabelle tbody th { font-weight: 700; white-space: nowrap; }
 .tabelle td { color: var(--grau); }
 
 /* Sortiment-Übersicht */
-.bereiche li { display: grid; gap: 6px 48px; padding: 24px 0; border-top: 1px solid var(--fuge); align-items: baseline; }
-.bereiche li:last-child { border-bottom: 1px solid var(--fuge); }
+.bereiche li { display: grid; gap: 6px 48px; padding: 24px 0; border-top: 1px solid var(--linie); align-items: baseline; }
+.bereiche li:last-child { border-bottom: 1px solid var(--linie); }
 .bereiche__name { display: inline-flex; align-items: center; gap: 14px; font-size: clamp(28px, 3.2vw, 48px); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; text-decoration: none; }
 .bereiche__name .pfeil { width: .6em; height: .6em; transition: transform .2s; }
 .bereiche__name:hover .pfeil { transform: translateX(6px); }
@@ -367,7 +363,7 @@ a.fliese--foto:hover img { transform: scale(1.03); }
 .rechner { grid-template-columns: 1fr; max-width: 1100px; }
 .rechner__eingabe { display: grid; gap: 20px; padding: clamp(20px, 3vw, 36px); }
 .rechner__ergebnis { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: clamp(20px, 3vw, 36px); background: var(--stein); }
-.rechner__ergebnis div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--fuge); }
+.rechner__ergebnis div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--linie); }
 .rechner__ergebnis span { color: var(--grau); }
 .rechner__ergebnis b { font-size: clamp(22px, 2vw, 30px); letter-spacing: -.02em; text-align: right; }
 .rechner__ergebnis .klein { margin-top: 12px; }
@@ -388,44 +384,48 @@ a.fliese--foto:hover img { transform: scale(1.03); }
 .luecke { background: #f1dfae; padding: 0 4px; }
 
 /* ---------- Fuß mit Anfahrt ---------- */
-.wegweiser { background: #ebe6df; border-top: var(--fb) solid var(--fuge); margin-top: clamp(40px, 6vw, 80px); }
+.wegweiser { background: var(--anthrazit); color: #e9e8e4; margin-top: clamp(40px, 6vw, 80px); }
+.wegweiser .titel-klein { color: var(--gold); }
+.wegweiser :focus-visible { outline-color: #fff; }
+.wegweiser .knopf--rand { color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
+.wegweiser .knopf--rand:hover { background: #fff; color: var(--tinte); }
 .wegweiser__innen { display: grid; gap: 32px 56px; padding-block: clamp(40px, 5vw, 72px); }
 .wegweiser__daten { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
 .wegweiser address { font-style: normal; font-size: 18px; line-height: 1.45; }
 .zeiten { display: grid; gap: 2px; width: 100%; max-width: 320px; }
-.zeiten div { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--fuge); padding: 6px 0; }
+.zeiten div { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(255,255,255,.16); padding: 6px 0; }
 .zeiten dd { font-weight: 600; }
 .wegweiser__kontakt a { font-weight: 600; text-decoration: none; }
 .wegweiser__kontakt a:hover { text-decoration: underline; }
-.wegweiser__karte { padding: var(--fb); background: var(--fuge); align-self: start; }
-.wegweiser__karte figcaption { background: var(--papier); padding: 8px 12px; font-size: 13px; color: var(--grau); margin-top: var(--fb); }
-.wegweiser__unten { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; padding-block: 22px 28px; border-top: 1px solid var(--fuge); font-size: 15px; }
+.wegweiser__karte { padding: var(--fb); background: #111216; align-self: start; }
+.wegweiser__karte figcaption { background: #26272d; padding: 8px 12px; font-size: 13px; color: #b9b8b2; margin-top: var(--fb); }
+.wegweiser__unten { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; padding-block: 22px 28px; border-top: 1px solid rgba(255,255,255,.16); font-size: 15px; }
 .wegweiser__unten ul { display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .wegweiser__unten a { text-decoration: none; padding-block: 6px; display: inline-block; }
 .wegweiser__unten a:hover { text-decoration: underline; }
-.wegweiser__recht { color: var(--grau); }
+.wegweiser__recht { color: #a9a8a2; }
 @media (min-width: 1024px) { .wegweiser__innen { grid-template-columns: 4fr 8fr; } }
 
-.karte { display: block; width: 100%; height: auto; background: var(--papier); font-family: "Familjen Grotesk", system-ui, sans-serif; }
-.k-grund { fill: var(--papier); }
-.k-rhein { fill: none; stroke: #c9d2d3; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
-.k-rhein-name { font-size: 11px; font-style: italic; fill: #6f7f83; letter-spacing: .2em; }
-.k-bahn { fill: none; stroke: #c9c0b4; stroke-width: 1; stroke-dasharray: 4 3; }
-.k-neben { fill: none; stroke: #ddd5ca; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
-.k-haupt { fill: none; stroke: #cbbfaf; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.k-autobahn-rand { fill: none; stroke: #6a5a4f; stroke-width: 5.2; stroke-linecap: round; stroke-linejoin: round; }
-.k-autobahn { fill: none; stroke: #b9a58f; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.k-bergheimer { fill: none; stroke: var(--tinte); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
-.k-strasse { font-size: 9.5px; font-weight: 700; fill: var(--tinte); paint-order: stroke; stroke: var(--papier); stroke-width: 3px; }
-.k-ort text { font-size: 10.5px; fill: var(--grau); paint-order: stroke; stroke: var(--papier); stroke-width: 3px; stroke-linejoin: round; }
-.k-ort circle { fill: var(--grau); }
-.k-ort--1 text { font-size: 13px; font-weight: 700; fill: var(--tinte); }
-.k-ort--2 text { font-size: 11.5px; font-weight: 600; fill: var(--tinte); }
-.k-ausfahrt circle { fill: var(--papier); stroke: #6a5a4f; stroke-width: 1.6; }
-.k-ausfahrt text { font-size: 9.5px; font-weight: 600; fill: #6a5a4f; paint-order: stroke; stroke: var(--papier); stroke-width: 3px; }
-.k-schild rect { fill: var(--anthrazit); }
-.k-schild text { font-size: 9.5px; font-weight: 700; fill: #fff; }
-.k-laden circle { fill: var(--anthrazit); stroke: var(--papier); stroke-width: 3; }
+.karte { display: block; width: 100%; height: auto; background: #24252b; font-family: "Familjen Grotesk", system-ui, sans-serif; }
+.k-grund { fill: #24252b; }
+.k-rhein { fill: none; stroke: #33424a; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+.k-rhein-name { font-size: 11px; font-style: italic; fill: #8aa3ae; letter-spacing: .2em; }
+.k-bahn { fill: none; stroke: #3a3b42; stroke-width: 1; stroke-dasharray: 4 3; }
+.k-neben { fill: none; stroke: #34353c; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.k-haupt { fill: none; stroke: #4b4c54; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.k-autobahn-rand { fill: none; stroke: #111216; stroke-width: 5.6; stroke-linecap: round; stroke-linejoin: round; }
+.k-autobahn { fill: none; stroke: var(--gold); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.k-bergheimer { fill: none; stroke: #fff; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.k-strasse { font-size: 9.5px; font-weight: 700; fill: #fff; paint-order: stroke; stroke: #24252b; stroke-width: 3px; }
+.k-ort text { font-size: 10.5px; fill: #b9b8b2; paint-order: stroke; stroke: #24252b; stroke-width: 3px; stroke-linejoin: round; }
+.k-ort circle { fill: #b9b8b2; }
+.k-ort--1 text { font-size: 13px; font-weight: 700; fill: #fff; }
+.k-ort--2 text { font-size: 11.5px; font-weight: 600; fill: #fff; }
+.k-ausfahrt circle { fill: #24252b; stroke: var(--gold); stroke-width: 1.6; }
+.k-ausfahrt text { font-size: 9.5px; font-weight: 600; fill: var(--gold); paint-order: stroke; stroke: #24252b; stroke-width: 3px; }
+.k-schild rect { fill: var(--gold); }
+.k-schild text { font-size: 9.5px; font-weight: 700; fill: var(--tinte); }
+.k-laden circle { fill: #fff; stroke: var(--gold); stroke-width: 3; }
 @media (max-width: 767px) {
   .wegweiser__karte { overflow: hidden; }
   .wegweiser__karte .karte { width: 190%; max-width: none; margin-left: -45%; }
@@ -440,8 +440,20 @@ a.fliese--foto:hover img { transform: scale(1.03); }
     padding: var(--fb) var(--fb) calc(var(--fb) + env(safe-area-inset-bottom)); background: var(--fuge);
   }
   .ruf-leiste a { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; background: var(--weiss); font-weight: 700; text-decoration: none; }
-  .ruf-leiste .ruf-leiste__anruf { background: var(--anthrazit); color: #fff; }
+  .ruf-leiste .ruf-leiste__anruf { background: var(--gold); color: var(--tinte); }
   body:not(.ohne-leiste) { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .start-wand > *, .kopfwand > * { animation: verlegen .6s cubic-bezier(.2, .7, .2, 1) both; }
+  .start-wand > :nth-child(2), .kopfwand > :nth-child(2) { animation-delay: .07s; }
+  .start-wand > :nth-child(3), .kopfwand > :nth-child(3) { animation-delay: .14s; }
+  .start-wand > :nth-child(4), .kopfwand > :nth-child(4) { animation-delay: .21s; }
+  .start-wand > :nth-child(5) { animation-delay: .28s; }
+  .start-wand > :nth-child(6) { animation-delay: .35s; }
+  .start-wand > :nth-child(7) { animation-delay: .42s; }
+  .start-wand > :nth-child(8) { animation-delay: .49s; }
+  @keyframes verlegen { from { opacity: 0; transform: translateY(16px); } }
 }
 
 @media (prefers-reduced-motion: reduce) {

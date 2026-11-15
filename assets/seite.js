@@ -72,6 +72,39 @@
   }
 
   /* ---------- Anfrageformular ---------- */
+
+  /* Versand an kontakt.php – SideTwo-Kontaktformular-Standard (nie über die Mail-App) */
+  function stSenden(form, betreff, melden) {
+    var daten = new FormData(form);
+    if (betreff) daten.set("betreff", betreff);
+    var knopf = form.querySelector('[type="submit"]');
+    if (knopf) knopf.disabled = true;
+    if (!melden) {
+      var st = form.querySelector(".st-status");
+      if (!st) {
+        st = document.createElement("p");
+        st.className = "st-status";
+        st.setAttribute("role", "status");
+        st.setAttribute("aria-live", "polite");
+        st.style.marginTop = "12px";
+        st.style.fontWeight = "600";
+        form.appendChild(st);
+      }
+      melden = function (ok, text) { st.textContent = text; };
+    }
+    return fetch(form.getAttribute("action") || "kontakt.php", {
+      method: "POST", body: daten, headers: { "X-Requested-With": "fetch" }, credentials: "same-origin"
+    })
+      .then(function (r) { return r.json(); })
+      .catch(function () { return { ok: false, text: "Das Formular konnte gerade nicht gesendet werden. Bitte rufen Sie uns kurz an." }; })
+      .then(function (a) {
+        if (knopf) knopf.disabled = !!a.ok;
+        melden(!!a.ok, a.text);
+        if (a.ok) form.reset();
+        return a;
+      });
+  }
+
   var form = document.querySelector(".formular");
   if (!form) return;
   var VORLAGEN = {
@@ -94,6 +127,8 @@
     }
     fehler.hidden = true;
     var zeilen = [f.anliegen.value.trim(), "", "Name: " + f.name.value.trim(), "Telefon: " + f.telefon.value.trim()];
-    location.href = "mailto:" + form.dataset.mail + "?subject=" + encodeURIComponent("Anfrage über die Website") + "&body=" + encodeURIComponent(zeilen.join("\n"));
+    fehler.hidden = false;
+    fehler.textContent = "Wird gesendet …";
+    stSenden(form, "Anfrage über die Website", function (ok, t) { fehler.hidden = false; fehler.textContent = t; });
   });
 })();

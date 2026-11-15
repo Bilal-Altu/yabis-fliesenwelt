@@ -54,24 +54,19 @@ function startseite(k) {
 <section class="rahmen-breit start-wand" aria-labelledby="start-titel">
   <div class="fliese fliese--weiss start-text">
     <h1 class="titel-start" id="start-titel"><span class="ueber">Fliesenhandel mit Ausstellung in Duisburg-Rheinhausen</span>Ihr neues Bad steht schon bei uns im Regal.</h1>
-    <p class="lead">Feinsteinzeug, Naturstein, Mosaik und Terrassenplatten für Bad, Küche, Wohnraum und draußen. In Originalgröße zum Anfassen, mit fertigen Musterbädern und Beratung am Tisch.</p>
+    <p class="lead">Feinsteinzeug, Naturstein, Mosaik und Terrassenplatten in Originalgröße zum Anfassen – mit fertigen Musterbädern und Beratung am Tisch.</p>
     <div class="knoepfe">
       <a class="knopf" href="${u("ausstellung/")}">Zur Ausstellung ${PFEIL}</a>
       <a class="knopf knopf--rand" href="${u("sortiment/")}">Sortiment</a>
     </div>
   </div>
-  ${fotoFliese(s, { klasse: "s-fassade", bild: "fassade", prio: true, alt: "Eingang von Yabi’s Fliesenwelt mit Schaufenster und Musterplatten davor", schild: "Der Eingang", sizes: "(min-width: 768px) 34vw, 100vw" })}
-  <a class="fliese fliese--anthrazit s-zeit" href="#anfahrt"><span class="zeit__status" data-offen>Öffnungszeiten</span><span class="zeit__unten"><span data-offen-heute>${BETRIEB.zeitenKurz}</span><span>Anfahrt ↓</span></span></a>
-  ${fotoFliese(s, { klasse: "s-regal", bild: "regal", alt: "Plattenregal mit großformatigen Fliesen in Marmoroptik", schild: "Großformate", href: u("sortiment/feinsteinzeug/"), sizes: "(min-width: 768px) 17vw, 50vw" })}
-  ${fotoFliese(s, { klasse: "s-lounge", bild: "lounge", alt: "Zwei Sessel vor einem Musterbad mit Fischgrät-Wand", schild: "Beratung am Tisch", href: u("service/"), sizes: "(min-width: 768px) 17vw, 50vw" })}
-  <div class="fliese fliese--sand s-sand"></div>
-  ${fotoFliese(s, { klasse: "s-bad", bild: "bad-marmor", alt: "Musterbad mit dunklen Marmorfliesen, Regendusche und weißem Waschtisch", schild: "Musterbad", href: u("ausstellung/"), sizes: "(min-width: 768px) 17vw, 50vw" })}
-  ${fotoFliese(s, { klasse: "s-empfang", bild: "empfang", alt: "Empfangstheke mit Fliesenverkleidung und Logo an der Holzwand", sizes: "(min-width: 768px) 17vw, 50vw" })}
-  ${fotoFliese(s, { klasse: "s-aussen", bild: "aussen", alt: "Musterplatten für Terrassen auf dem Rasen vor dem Schaufenster", schild: "Terrassenplatten draußen", href: u("sortiment/terrassenplatten/"), sizes: "(min-width: 768px) 34vw, 100vw" })}
-  <div class="fliese fliese--taupe s-taupe"></div>
-  <div class="fliese s-stein"></div>
-  <a class="fliese fliese--weiss s-profis" href="${u("fuer-profis/")}"><span>Für Fliesenleger</span>${PFEIL}</a>
-  <div class="fliese fliese--grau s-grau"></div>
+  ${fotoFliese(s, { klasse: "s-platte", bild: "grossformate", prio: true, alt: "Gang mit raumhohen Feinsteinzeug-Platten in Marmor- und Steinoptik", schild: "Großformate in Originalgröße", href: u("sortiment/feinsteinzeug/"), sizes: "(min-width: 768px) 700px, 100vw" })}
+  ${fotoFliese(s, { klasse: "s-regal", bild: "regal", alt: "Plattenregal mit großformatigen Fliesen in Marmoroptik", schild: "Zum Durchblättern", href: u("ausstellung/"), sizes: "(min-width: 768px) 480px, 50vw" })}
+  <a class="fliese fliese--gold s-zeit" href="#anfahrt"><span class="zeit__status" data-offen>Öffnungszeiten</span><span class="zeit__unten"><span data-offen-heute>${BETRIEB.zeitenKurz}</span><span>Anfahrt ↓</span></span></a>
+  ${fotoFliese(s, { klasse: "s-bad", bild: "empfang", alt: "Empfangstheke mit Fliesenverkleidung und Logo an der Holzwand", schild: "Beratung am Tisch", href: u("service/"), sizes: "(min-width: 768px) 480px, 50vw" })}
+  ${fotoFliese(s, { klasse: "s-fassade", bild: "fassade", alt: "Eingang von Yabi’s Fliesenwelt mit Schaufenster und Musterplatten davor", schild: "Der Eingang", sizes: "(min-width: 768px) 640px, 100vw" })}
+  ${fotoFliese(s, { klasse: "s-fisch", bild: "fischgraet", alt: "Musterdusche mit dunkler Wand im Fischgrätmuster und Messing-Armatur", schild: "Fischgrät", href: u("sortiment/mosaik/"), sizes: "(min-width: 768px) 400px, 50vw" })}
+  <div class="fliese s-beton"></div>
 </section>
 
 <section class="rahmen abschnitt" aria-labelledby="sortiment-titel">
@@ -80,11 +75,11 @@ function startseite(k) {
     <p>Für Wand, Boden und draußen. Was Sie im Laden sehen, gibt es meist auch in anderen Formaten und Farben, und das passende Zubehör liegt gleich daneben.</p>
   </div>
   <div class="wand sortiment-wand">
-    ${fotoFliese(s, { klasse: "w-fein", bild: A[0].bild, alt: A[0].bildAlt, schild: `<b>${A[0].name}</b> ${A[0].kurz}`, href: u(`sortiment/${A[0].slug}/`), sizes: "(min-width: 768px) 32vw, 100vw" })}
+    ${fotoFliese(s, { klasse: "w-fein", bild: "betonoptik", alt: "Graue Großformate in Beton- und Steinoptik am Fenster", schild: `<b>${A[0].name}</b> ${A[0].kurz}`, href: u(`sortiment/${A[0].slug}/`), sizes: "(min-width: 768px) 600px, 100vw" })}
     <a class="fliese fliese--travertin w-natur" href="${u(`sortiment/${A[1].slug}/`)}"><b>${A[1].name}</b><span>${A[1].kurz}</span>${PFEIL}</a>
     ${fotoFliese(s, { klasse: "w-mosaik", bild: A[2].bild, alt: A[2].bildAlt, schild: `<b>${A[2].name}</b>`, href: u(`sortiment/${A[2].slug}/`), sizes: "(min-width: 768px) 300px, 50vw" })}
     ${fotoFliese(s, { klasse: "w-terrasse", bild: A[3].bild, alt: A[3].bildAlt, schild: `<b>${A[3].name}</b> ${A[3].kurz}`, href: u(`sortiment/${A[3].slug}/`), sizes: "(min-width: 768px) 740px, 100vw" })}
-    <div class="fliese fliese--sand w-deko"></div>
+    <div class="fliese fliese--gold w-deko"></div>
     <a class="fliese w-zubehoer" href="${u(`sortiment/${A[4].slug}/`)}"><b>${A[4].name}</b><span>${A[4].kurz}</span>${PFEIL}</a>
   </div>
 </section>
@@ -112,10 +107,10 @@ function startseite(k) {
 </section>
 
 <section class="rahmen-breit profis-band" aria-labelledby="profis-titel">
-  <div class="fliese fliese--anthrazit">
+  <div class="fliese fliese--gold">
     <h2 class="titel-mittel" id="profis-titel">Sie verlegen Fliesen?</h2>
     <p>Material aus einer Charge, Objektmengen auf Bestellung, und Ihre Bauherren suchen bei uns in Ruhe aus. Fliesenleger mit freien Kapazitäten bringen wir mit Kunden zusammen.</p>
-    <a class="knopf knopf--hell" href="${u("fuer-profis/")}">Für Profis ${PFEIL}</a>
+    <a class="knopf" href="${u("fuer-profis/")}">Für Profis ${PFEIL}</a>
   </div>
 </section>
 
@@ -239,7 +234,7 @@ ${kopfwand({
   h1: "Fliesen in Originalgröße, Bäder in echt.",
   lead: "Ein großer heller Raum hinter Schaufenstern, davor eine Rasenfläche mit Platten für draußen. Kommen Sie ohne Termin vorbei und nehmen Sie sich Zeit.",
   rechts: `${fotoFliese(s, { klasse: "kw-a", bild: "fassade", alt: "Eingang von Yabi’s Fliesenwelt mit Schaufenster und Musterplatten davor", prio: true, sizes: "(min-width: 768px) 680px, 100vw" })}
-  <div class="fliese fliese--anthrazit kw-b kw-zeit"><span data-offen>Öffnungszeiten</span></div>
+  <div class="fliese fliese--gold kw-b kw-zeit"><span data-offen>Öffnungszeiten</span></div>
   <div class="fliese fliese--sand kw-c"></div>`,
 })}
 
@@ -467,16 +462,17 @@ ${kopfwand({
   h1: "Anrufen, schreiben oder vorbeikommen.",
   lead: "",
   klasse: "kopfwand--kontakt",
-  rechts: `<a class="fliese fliese--anthrazit kontakt-telefon" href="${BETRIEB.telefonLink}"><span>Telefon</span><b>${HOERER}${BETRIEB.telefon}</b></a>
+  rechts: `<a class="fliese fliese--gold kontakt-telefon" href="${BETRIEB.telefonLink}"><span>Telefon</span><b>${HOERER}${BETRIEB.telefon}</b></a>
   <a class="fliese fliese--weiss kontakt-mail" href="mailto:${BETRIEB.mail}"><span>E-Mail</span><b>${BETRIEB.mail}</b></a>`,
 })}
 
 <section class="rahmen abschnitt zweispaltig" id="anfrage" aria-labelledby="anfrage-titel">
   <div>
     <h2 class="titel-mittel" id="anfrage-titel">Oder schreiben Sie uns hier</h2>
-    <p>Beim Absenden öffnet sich Ihr E-Mail-Programm mit der fertigen Nachricht. Über diese Website wird nichts gespeichert.</p>
+    <p>Ihre Anfrage geht direkt per E-Mail an uns – auf der Website wird nichts gespeichert.</p>
   </div>
-  <form class="formular" data-mail="${BETRIEB.mail}" novalidate>
+  <form class="formular" action="../kontakt.php" method="post" novalidate>
+<div class="st-falle" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Bitte leer lassen <input name="webseite" type="text" tabindex="-1" autocomplete="off"></label></div>
     <label class="feld">Ihr Name<input name="name" autocomplete="name" required></label>
     <label class="feld">Telefon für Rückruf<input name="telefon" type="tel" autocomplete="tel" required></label>
     <label class="feld breit">Ihr Anliegen<textarea name="anliegen" rows="6" required placeholder="Zum Beispiel: Bad mit 8 m² Boden und 20 m² Wand, Großformat in Steinoptik, bitte Rückruf am Vormittag."></textarea></label>
@@ -545,7 +541,7 @@ function datenschutz(k) {
   <p>Die Website wird bei einem Hosting-Anbieter in Deutschland betrieben. Beim Aufruf speichert der Server automatisch Angaben, die Ihr Browser übermittelt: IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser und Betriebssystem. Das ist nötig, um die Seite sicher und fehlerfrei auszuliefern (Art. 6 Abs. 1 lit. f DSGVO). Die Protokolle werden gelöscht, sobald sie dafür nicht mehr gebraucht werden. Mit dem Hosting-Anbieter besteht ein Vertrag zur Auftragsverarbeitung.</p>
 
   <h2>Kontakt per Telefon, E-Mail oder Formular</h2>
-  <p>Wenn Sie uns anrufen oder schreiben, verarbeiten wir Ihre Angaben, um Ihre Anfrage zu beantworten und gegebenenfalls ein Angebot oder einen Kauf vorzubereiten (Art. 6 Abs. 1 lit. b DSGVO). Das Formular auf der Kontaktseite verschickt selbst nichts: Es öffnet Ihr eigenes E-Mail-Programm mit der fertigen Nachricht, und Sie entscheiden, ob Sie sie absenden. Wir löschen Anfragen, wenn sie erledigt sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+  <p>Wenn Sie uns anrufen oder schreiben, verarbeiten wir Ihre Angaben, um Ihre Anfrage zu beantworten und gegebenenfalls ein Angebot oder einen Kauf vorzubereiten (Art. 6 Abs. 1 lit. b DSGVO). Wenn Sie das Anfrageformular nutzen, werden Ihre Angaben an unseren Webserver übertragen und von dort per E-Mail an uns weitergeleitet. Wir verwenden sie ausschließlich zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b DSGVO); ein externer Dienst wird dafür nicht eingesetzt. Zum Schutz vor Missbrauch wird ein nicht umkehrbarer Hashwert Ihrer IP-Adresse höchstens eine Stunde lang gespeichert, um zu viele Anfragen in kurzer Zeit zu begrenzen (Art. 6 Abs. 1 lit. f DSGVO). Beim Absenden wird außerdem ein technisch notwendiges Sitzungs-Cookie gesetzt, das doppelte Absendungen verhindert; es wird beim Schließen des Browsers gelöscht. Wir löschen Anfragen, wenn sie erledigt sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
 
   <h2>Links zu Google Maps, Instagram und TikTok</h2>
   <p>Der Knopf „Route“ und die Hinweise auf Instagram und TikTok sind einfache Links. Erst wenn Sie darauf tippen, verlassen Sie diese Seite, und es gelten die Datenschutzbestimmungen des jeweiligen Anbieters. Vorher wird nichts an diese Anbieter übertragen.</p>
